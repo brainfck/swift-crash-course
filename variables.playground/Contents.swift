@@ -47,16 +47,14 @@ newArray.add("Qux")
 oldArray
 newArray
 
-
 let someNames = NSMutableArray(
     array: [
-        "Foo",
-        "Bar"
-    ]
-)
+        "Foo", "Bar"
+    ])
 func changeTheArray(_ array: NSArray) {
     let copy = array as! NSMutableArray
     copy.add("Baz")
 }
+
 changeTheArray(someNames)
 someNames
