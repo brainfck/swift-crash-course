@@ -60,3 +60,74 @@ stuff1.count
 
 let stuff2: [Any] = [1, "Hello", 2, "World"]
 stuff2.count
+
+
+// unique numbers
+// order is not guaranteed
+let uniqueNumbers = Set([1, 1, 2, 3, 2])
+uniqueNumbers.count
+uniqueNumbers.map(-)
+
+
+let stuff3: Set<AnyHashable> = [1, 2, 3, "Vandad"]
+stuff3.count
+
+let intsInStuff1 = stuff1
+  .compactMap{(value: Any) -> Int? in
+    value as? Int
+}
+
+let stringsInStuff1 = stuff1
+  .compactMap{(value: Any) -> String? in
+    value as? String
+}
+
+let intsInStuff3 = stuff3
+  .compactMap{(value: AnyHashable) -> Int? in
+    value as? Int
+}
+
+type(of: intsInStuff3)
+
+
+
+
+
+
+struct Person: Hashable {
+  let id: UUID
+  let name: String
+  let age: Int
+}
+
+let fooId = UUID()
+let foo = Person(id: fooId, name: "Foo", age: 20)
+let bar = Person(id: fooId, name: "Bar", age: 25)
+
+let people: Set<Person> = [foo, bar]
+people.count
+
+
+
+
+
+struct Person2: Hashable {
+  let id: UUID
+  let name: String
+  let age: Int
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
+  
+  static func ==(lhs: Self, rhs: Self) -> Bool {
+    lhs.id == rhs.id
+  }
+}
+
+let bazId = UUID()
+let baz = Person2(id: bazId, name: "Baz", age: 20)
+let qux = Person2(id: bazId, name: "Qux", age: 30)
+
+let people2 = Set([baz, qux])
+people2.count
