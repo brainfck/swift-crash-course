@@ -1,5 +1,9 @@
 import Foundation
 
+// ARRAYS
+//
+//
+
 let numbers = [1, 2, 3, 4, 5]
 numbers.first
 numbers.last
@@ -62,6 +66,9 @@ let stuff2: [Any] = [1, "Hello", 2, "World"]
 stuff2.count
 
 
+// SETS
+//
+//
 // unique numbers
 // order is not guaranteed
 let uniqueNumbers = Set([1, 1, 2, 3, 2])
@@ -131,3 +138,44 @@ let qux = Person2(id: bazId, name: "Qux", age: 30)
 
 let people2 = Set([baz, qux])
 people2.count
+
+
+
+// DICTIONARIES
+//
+//
+
+let userInfo = [
+  "name": "Foo",
+  "age": 20,
+  "address": [
+    "line1": "Address line 1",
+    "postCode": "12345"
+  ]
+] as [String:Any]
+
+userInfo["name"]
+userInfo["age"]
+userInfo["address"]
+
+// DO NOT DO THIS IN PROD CODE, THIS IS JUST FOR DEMONSTRATION
+(userInfo["address"] as! [String: String])["postCode"]
+
+
+userInfo.keys
+userInfo.values
+
+for (key, value) in userInfo {
+  key
+  value
+}
+
+for (key, value) in userInfo where value is Int {
+  key
+  value
+}
+
+for (key, value) in userInfo where value is Int && key.count > 3 {
+  key
+  value
+}
