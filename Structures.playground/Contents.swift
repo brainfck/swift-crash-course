@@ -84,3 +84,9 @@ let bike2 = bike1.copy(currentSpeed: 30)
 
 bike1.currentSpeed
 bike2.currentSpeed
+
+var names = ["First", "Second", "Second", "Third", "Max"]
+var uniqueNames = Set<String>(names)
+
+uniqueNames.count
+names.count
