@@ -5,6 +5,9 @@
       location = "group:Enumerations.playground">
    </FileRef>
    <FileRef
+      location = "group:Classes.playground">
+   </FileRef>
+   <FileRef
       location = "group:Structures.playground">
    </FileRef>
    <FileRef
