@@ -171,3 +171,17 @@ indirect enum IntOperation {
 
 let freeHand = IntOperation.freeHand(.add(2, 4))
 freeHand.calculateResult()
+
+
+var luckyNumbers = [7, 4, 38, 21, 16, 15, 12, 33, 31, 49]
+var resultNumbers = luckyNumbers.filter {
+  !$0.isMultiple(of: 2)
+}.sorted {
+  $0 < $1
+}.map { 
+  "\($0) is a lucky number"
+}
+
+for number in resultNumbers {
+  print(number)
+}
