@@ -30,3 +30,11 @@ let age = 30
 let message = age >= 18
   ? "You are an adult"
   : "You are not yet an adult"
+
+
+func optionalsChallenge(_ array: [Int]?) -> Int {
+  return array?.randomElement() ?? Int.random(in: 1...100)
+}
+
+let array: [Int]? = [1, 2, 3]
+print(optionalsChallenge(array))
